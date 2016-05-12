@@ -1,7 +1,9 @@
 package com.caunk94.myslidingmenu2;
 
+import android.annotation.TargetApi;
 import android.app.SearchManager;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -55,14 +57,18 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
 
+        //untuk menampilkan icon search
         SearchView searchView = (SearchView)menu.findItem(R.id.item_search).getActionView();
         SearchManager searchManager = (SearchManager)getSystemService(Context.SEARCH_SERVICE);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+        //
         return true;
     }
 

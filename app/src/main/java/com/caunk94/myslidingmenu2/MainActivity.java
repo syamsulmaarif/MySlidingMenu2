@@ -64,6 +64,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        initial();
+        //displayData();
+        context = this;
+
+        ListView lv= (ListView)findViewById(R.id.listView);
+        lv.setOnItemLongClickListener(itemLongClick);
     }
 
     @Override
